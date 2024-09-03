@@ -46,7 +46,7 @@ M.getLinkUnderCursor = function(col)
     local patterns = {
         md_link = '(%b[]%b())',
         wiki_link = '(%[%b[]%])',
-        ref_style_link = '(%b[]%s?%b[])',
+        ref_style_link = '(%b[]%b[])',
         auto_link = '(%b<>)',
         citation = "[^%a%d]-(@[%a%d_%.%-']*[%a%d]+)[%s%p%c]?",
     }
@@ -125,7 +125,7 @@ M.getLinkPart = function(link_table, part)
                 wiki_link = '|(.-)%]',
                 wiki_link_no_bar = '%[%[(.-)%]%]',
                 wiki_link_anchor_no_bar = '%[%[(.-)#.-%]%]',
-                ref_style_link = '%[(.*)%]%s?%[',
+                ref_style_link = '%[(.*)%]%[',
                 citation = '(@.*)',
             },
             source = {
